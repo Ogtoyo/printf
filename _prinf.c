@@ -19,14 +19,15 @@ int _printf(const char *format, ...)
 
 	get_printf_functions(functions);
 
-	for (i = 0; format[i] != '\0' || format[i] != NULL; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
 			i++;
 			for (j = 0; functions[j].format != 0; j++)
 			{
-				if (format[i] == functions[j].format) {
+				if (format[i] == functions[j].format)
+				{
 					count += functions[j].printf_func(args);
 					break;
 				}
