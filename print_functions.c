@@ -15,12 +15,14 @@ void get_printf_functions(PrintFunc *functions)
 		{'s', printf_str},
 		{'c', printf_chr},
 		{'%', printf_percent},
+		{'i', printf_integer},
+		{'d', printf_digit},
 		{0, NULL}
 	};
 
 	int i;
 
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < 6; i++)
 	{
 		functions[i] = func[i];
 	}

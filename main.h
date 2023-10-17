@@ -27,5 +27,7 @@ void get_printf_functions(PrintFunc *functions);
 int printf_str(va_list args);
 int printf_chr(va_list args);
 int printf_percent(va_list args);
+int printf_integer(va_list args);
+int printf_digit(va_list args);
 
 #endif
