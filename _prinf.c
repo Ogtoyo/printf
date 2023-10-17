@@ -13,6 +13,8 @@ int _printf(const char *format, ...)
 	va_list args;
 	unsigned int i = 0, j;
 	int count = 0;
+	char buffer[BUFFER_SIZE] = {0};
+	char *buf_ptr = buffer;
 	PrintFunc functions[11];
 
 	va_start(args, format);
@@ -28,16 +30,23 @@ int _printf(const char *format, ...)
 			{
 				if (format[i] == functions[j].format)
 				{
-					count += functions[j].printf_func(args);
+					count += functions[j].printf_func(args, &buf_ptr);
 					break;
 				}
 			}
 		}
 		else
 		{
-			count += _putchr(format[i]);
+			count += _putchr(format[i], &buf_ptr);
+		}
+		if (buf_ptr - buffer > BUFFER_SIZE - 50)
+		{
+			write(1, buffer, buf_ptr - buffer);
+			buf_ptr = buffer;
 		}
 	}
+	if (buf_ptr != buffer)
+		write(1, buffer, buf_ptr - buffer);
 
 	va_end(args);
 	return (count);
