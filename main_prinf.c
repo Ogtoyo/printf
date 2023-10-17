@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 
 	get_printf_functions(functions);
 
-	for (i = 0; format[i] != '\0'; i++)
+	for (i = 0; format[i] != '\0' || format[i] != NULL; i++)
 	{
 		if (format[i] == '%')
 		{
