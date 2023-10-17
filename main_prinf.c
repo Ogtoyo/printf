@@ -21,22 +21,22 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-        if (format[i] == '%')
+		if (format[i] == '%')
 		{
-            i++;
-            for (j = 0; functions[j].format != 0; j++)
+			i++;
+			for (j = 0; functions[j].format != 0; j++)
 			{
-                if (format[i] == functions[j].format) {
-                    count += functions[j].printf_func(args);
-                    break;
-                }
-            }
-        }
+				if (format[i] == functions[j].format) {
+					count += functions[j].printf_func(args);
+					break;
+				}
+			}
+		}
 		else
 		{
-            count += _putchr(format[i]);
-        }
-    }
+			count += _putchr(format[i]);
+		}
+	}
 
 	va_end(args);
 	return (count);
