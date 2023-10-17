@@ -42,6 +42,7 @@ int printf_chr(va_list args)
  */
 int printf_percent(va_list args)
 {
+	(void)args;
 	_putchr('%');
 	return (1);
 }

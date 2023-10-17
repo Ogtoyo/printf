@@ -11,43 +11,33 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	unsigned int i = 0;
-	char *str;
+	unsigned int i = 0, j;
 	int count = 0;
+	PrintFunc functions[4];
 
 	va_start(args, format);
 
+	get_printf_functions(functions);
+
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+        if (format[i] == '%')
 		{
-			i++;
-			switch (format[i])
+            i++;
+            for (j = 0; functions[j].format != 0; j++)
 			{
-				case 's':
-					str = va_arg(args, char *);
-					while (*str)
-					{
-						_putchr(*str++);
-						count++;
-					}
-					break;
-				case 'c':
-					_putchr(va_arg(args, int));
-					count++;
-					break;
-				case '%':
-					_putchr('%');
-					count++;
-					break;
-			}
-		}
+                if (format[i] == functions[j].format) {
+                    count += functions[j].printf_func(args);
+                    break;
+                }
+            }
+        }
 		else
 		{
-			_putchr(format[i]);
-			count++;
-		}
-	}
+            count += _putchr(format[i]);
+        }
+    }
+
 	va_end(args);
 	return (count);
 }
