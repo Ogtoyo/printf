@@ -5,10 +5,19 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-typedef struct {
+/**
+ * struct op - structure
+ * @format: the format specifier('s', etc)
+ * @printf_func: A pointer to the corresponding print function
+*/
+
+struct op
+{
 	char format;
 	int (*printf_func)(va_list);
-} PrintFunc;
+};
+
+typedef struct op PrintFunc;
 
 
 /*Functions*/
