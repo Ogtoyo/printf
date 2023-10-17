@@ -34,6 +34,9 @@ int printf_chr(va_list args)
 {
 	char c = va_arg(args, int);
 
+	if (c == '\0')
+		c = ' ';
+
 	_putchr(c);
 	return (1);
 }
