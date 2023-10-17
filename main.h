@@ -29,5 +29,6 @@ int printf_chr(va_list args);
 int printf_percent(va_list args);
 int printf_integer(va_list args);
 int printf_digit(va_list args);
+int printf_binary(va_list args);
 
 #endif

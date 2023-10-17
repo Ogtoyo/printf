@@ -57,6 +57,7 @@ int printf_digit(va_list args)
 		_putchr('0');
 		count++;
 	}
+
 	else
 	{
 		if (num < 0)

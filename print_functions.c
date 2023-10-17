@@ -17,12 +17,13 @@ void get_printf_functions(PrintFunc *functions)
 		{'%', printf_percent},
 		{'i', printf_integer},
 		{'d', printf_digit},
+		{'b', printf_binary},
 		{0, NULL}
 	};
 
 	int i;
 
-	for (i = 0; i < 6; i++)
+	for (i = 0; i < 7; i++)
 	{
 		functions[i] = func[i];
 	}
