@@ -30,23 +30,23 @@ int _printf(const char *format, ...)
 					str = va_arg(args, char *);
 					while (*str)
 					{
-						putchar(*str++);
+						_putchr(*str++);
 						count++;
 					}
 					break;
 				case 'c':
-					putchar(va_arg(args, int));
+					_putchr(va_arg(args, int));
 					count++;
 					break;
 				case '%':
-					putchar('%');
+					_putchr('%');
 					count++;
 					break;
 			}
 		}
 		else
 		{
-			putchar(format[i]);
+			_putchr(format[i]);
 			count++;
 		}
 	}
