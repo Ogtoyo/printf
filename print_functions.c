@@ -18,12 +18,16 @@ void get_printf_functions(PrintFunc *functions)
 		{'i', printf_integer},
 		{'d', printf_digit},
 		{'b', printf_binary},
+		{'x', printf_hex_low},
+		{'X', printf_hex_upper},
+		{'u', printf_unsigned},
+		{'o', printf_octal},
 		{0, NULL}
 	};
 
 	int i;
 
-	for (i = 0; i < 7; i++)
+	for (i = 0; i < 11; i++)
 	{
 		functions[i] = func[i];
 	}

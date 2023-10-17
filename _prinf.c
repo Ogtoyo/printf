@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	unsigned int i = 0, j;
 	int count = 0;
-	PrintFunc functions[7];
+	PrintFunc functions[11];
 
 	va_start(args, format);
 

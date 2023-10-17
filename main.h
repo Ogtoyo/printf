@@ -30,5 +30,9 @@ int printf_percent(va_list args);
 int printf_integer(va_list args);
 int printf_digit(va_list args);
 int printf_binary(va_list args);
+int printf_hex_low(va_list args);
+int printf_hex_upper(va_list args);
+int printf_octal(va_list args);
+int printf_unsigned(va_list args);
 
 #endif
