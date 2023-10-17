@@ -3,12 +3,14 @@
 /**
  * _putchr - to print
  *@c: the charcter
+ @buf_ptr: Pointer to a character buffer.
  *
  * Return: Always 0 (success)
  */
 
-int _putchr(char c)
+int _putchr(char c, char **buf_ptr)
 {
-	return (write(1, &c, 1));
-
+	**buf_ptr = c;
+	(*buf_ptr)++;
+	return (1);
 }

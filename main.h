@@ -5,6 +5,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#define BUFFER_SIZE 1024
+
+typedef int (*PrintfFunc)(va_list, char **);
+
 /**
  * struct op - structure
  * @format: the format specifier('s', etc)
@@ -14,7 +18,7 @@
 struct op
 {
 	char format;
-	int (*printf_func)(va_list);
+	PrintfFunc printf_func;
 };
 
 typedef struct op PrintFunc;
@@ -22,17 +26,17 @@ typedef struct op PrintFunc;
 
 /*Functions*/
 int _printf(const char *format, ...);
-int _putchr(char c);
+int _putchr(char c, char **buf_ptr);
 void get_printf_functions(PrintFunc *functions);
-int printf_str(va_list args);
-int printf_chr(va_list args);
-int printf_percent(va_list args);
-int printf_integer(va_list args);
-int printf_digit(va_list args);
-int printf_binary(va_list args);
-int printf_hex_low(va_list args);
-int printf_hex_upper(va_list args);
-int printf_octal(va_list args);
-int printf_unsigned(va_list args);
+int printf_str(va_list args, char **buf_ptr);
+int printf_chr(va_list args, char **buf_ptr);
+int printf_percent(va_list args, char **buf_ptr);
+int printf_integer(va_list args, char **buf_ptr);
+int printf_digit(va_list args, char **buf_ptr);
+int printf_binary(va_list args, char **buf_ptr);
+int printf_hex_low(va_list args, char **buf_ptr);
+int printf_hex_upper(va_list args, char **buf_ptr);
+int printf_octal(va_list args, char **buf_ptr);
+int printf_unsigned(va_list args, char **buf_ptr);
 
 #endif
