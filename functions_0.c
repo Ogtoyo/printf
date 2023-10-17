@@ -33,7 +33,7 @@ int printf_str(va_list args)
 int printf_chr(va_list args)
 {
 	char c = va_arg(args, int);
-	
+
 	_putchr(c);
 	return (1);
 }
