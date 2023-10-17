@@ -22,12 +22,13 @@ void get_printf_functions(PrintFunc *functions)
 		{'X', printf_hex_upper},
 		{'u', printf_unsigned},
 		{'o', printf_octal},
+		{'p', printf_pointer},
 		{0, NULL}
 	};
 
 	int i;
 
-	for (i = 0; i < 11; i++)
+	for (i = 0; i < 12; i++)
 	{
 		functions[i] = func[i];
 	}

@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 	char buffer[BUFFER_SIZE] = {0};
 	char *buf_ptr = buffer;
-	PrintFunc functions[11];
+	PrintFunc functions[12];
 
 	va_start(args, format);
 

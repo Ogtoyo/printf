@@ -38,5 +38,6 @@ int printf_hex_low(va_list args, char **buf_ptr);
 int printf_hex_upper(va_list args, char **buf_ptr);
 int printf_octal(va_list args, char **buf_ptr);
 int printf_unsigned(va_list args, char **buf_ptr);
+int printf_pointer(va_list args, char **buf_ptr);
 
 #endif
