@@ -3,10 +3,11 @@
 /**
  * printf_binary - Print a binary representation of an integer.
  * @args: List of arguments passed to the function.
+ * @buf_ptr: A pointer to the output buffer.
  *
  * Return: The number of characters printed.
  */
-int printf_binary(va_list args,char **buf_ptr)
+int printf_binary(va_list args, char **buf_ptr)
 {
 	unsigned int num = va_arg(args, unsigned int);
 	int count = 0, zero = 1, i, bit;
