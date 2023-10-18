@@ -15,7 +15,7 @@ int printf_integer(va_list args, char **buf_ptr)
 	if (num == 0)
 	{
 		_putchr('0', buf_ptr);
-		count++;
+		return (1);
 	}
 	else
 	{
@@ -57,7 +57,7 @@ int printf_digit(va_list args, char **buf_ptr)
 	if (num == 0)
 	{
 		_putchr('0', buf_ptr);
-		count++;
+		return (1);
 	}
 
 	else
